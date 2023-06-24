@@ -81,9 +81,12 @@ const SignupBack = () => {
 const SignupBtn = () => {
   const { id, pw } = useSignupContext();
   const url = "http://localhost:3030";
+  const navigate = useNavigate();
   const handleSignup = async () => {
     try {
       await axios.post(`${url}/auth/signup`, { id, pw });
+      alert("회원가입이 완료되었습니다.");
+      navigate("/signin");
     } catch (error) {
       console.error(error);
     }
