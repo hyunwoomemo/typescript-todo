@@ -14,7 +14,7 @@ interface SigninState {
 
 const SigninContext = createContext<SigninState | null>(null);
 
-const useSigninContext = () => {
+export const useSigninContext = () => {
   const context = useContext(SigninContext);
 
   if (!context) throw new Error("Signin 컴포넌트 내에서만 렌더링될 수 있습니다!");
