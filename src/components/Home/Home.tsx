@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState } from "react";
 import HomeTitle from "./HomeTitle";
-import HomeButton from "./HomeButton";
+import { useNavigate } from "react-router-dom";
+import Button from "../common/Button";
 
 // Home 에 대한 로직 처리
 
@@ -22,6 +23,24 @@ export const useHomeContext = () => {
 
 const Home = ({ children }: HomeProps) => {
   return <HomeContext.Provider value={{}}>{children}</HomeContext.Provider>;
+};
+
+interface HomeButtonProps {
+  children: React.ReactNode;
+  path: string;
+}
+
+const HomeButton = ({ children, path }: HomeButtonProps) => {
+  const navigate = useNavigate();
+  const handlePath = () => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      navigate("/main");
+    } else {
+      navigate(path);
+    }
+  };
+  return <Button onClick={handlePath}>{children}</Button>;
 };
 
 Home.Title = HomeTitle;
