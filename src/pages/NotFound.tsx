@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import React from "react";
 
 const NotFound = () => {
-  return <Base>페이지가 존재하지 않습니다 🔥</Base>;
+  return <Base>페이지가 존재하지 않습니다 ❌</Base>;
 };
 
 const Base = styled.div`
